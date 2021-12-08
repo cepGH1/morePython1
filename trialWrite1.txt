@@ -1,0 +1,4 @@
+Number of A in cv19 of two different strains are 8905 and 8954
+Number of Gs in cv19 of two different strains are 5850 and 5863
+Number of Cs in cv19 of two different strains are 5468 and 5492
+Number of Ts in cv19 of two different strains are 9601 and 9594
