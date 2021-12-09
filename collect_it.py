@@ -6,21 +6,48 @@ correctAnswers = []
 fa1s =[]
 fa2s =[]
 fa3s =[]
-myCheck =""
+myquizReport = False
 
 def save1():
-    pass
+    content1 = saveMyList1(questions, fa1s, fa2s, fa3s, correctAnswers)
+    saveMyList2(content1, "test3.txt")
+    
 
-def appendToList(question, fa1, fa2, fa3, answer):
+def appendToList():
+    
+    question = inputBox.get("1.0", "end - 1 chars")
+    answer = inputBox5.get("1.0", "end - 1 chars")
+    fa1 = inputBox2.get("1.0", "end - 1 chars")
+    fa2 = inputBox3.get("1.0", "end - 1 chars")
+    fa3 = inputBox4.get("1.0", "end - 1 chars")
     questions.append(question)
     correctAnswers.append(answer)
     fa1s.append(fa1)
     fa2s.append(fa2)
     fa3s.append(fa3)
+    
 
 def getLists(questionNumber):
     pass    
 
+def saveWindow():
+    save1()
+
+def showQuiz():
+    content1 = saveMyList1(questions, fa1s, fa2s, fa3s, correctAnswers)
+    
+    quizReport = Tk()
+    quizReport.geometry("400x400")
+    quizFrame = Frame(quizReport)
+    quizFrame.pack()
+    report = Text(quizFrame)
+    report.insert("1.0", content1)
+    
+    report.pack()
+    
+
+    
+    
 
 
 root = Tk()
@@ -67,15 +94,15 @@ controlFrame = Frame(frame)
 label5 = Label(controlFrame, textvariable=message5)
 label5.pack()
 saveButton1 = Button(controlFrame, text="save all", command=save1)
-saveButton1.pack()
-saveButton2 = Button(controlFrame, text="Add to quiz", command=appendToList(inputBox.get("1.0"), inputBox2.get("1.0"), inputBox3.get("1.0"), inputBox4.get("1.0"), inputBox5.get("1.0")))
-saveButton2.pack()
-checkButton = Button(controlFrame, text="check")
-checkButton.pack()
+saveButton1.pack(side=LEFT, padx=10)
+saveButton2 = Button(controlFrame, text="Add to quiz", command=appendToList)
+saveButton2.pack(side=LEFT, padx=10)
+checkButton = Button(controlFrame, text="show all questions and answers", command=showQuiz)
+checkButton.pack(side=LEFT, padx=10)
 controlFrame.pack(side=BOTTOM)
 mainmenu = Menu(root)
 filemenu = Menu(mainmenu, tearoff = 0)
-
+filemenu.add_command(label = "save", command= saveWindow)
 filemenu.add_command(label = "Exit", command = root.destroy)
 mainmenu.add_cascade(label="File", menu=filemenu)
 

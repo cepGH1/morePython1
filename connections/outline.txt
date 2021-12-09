@@ -1,0 +1,3 @@
+Three things  - canvas displays
+Three areas to write down possible connections
+saves the whole lot to an image file of some sort for exchange
