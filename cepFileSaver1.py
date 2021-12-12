@@ -17,14 +17,6 @@ def saveMyList2(theString, fileName):
     myFile.close
     
 
-my1 =["clare", "tom"]
-my2 = ["fiona", "jim"]
-my3 = ["julie", "jack"]
-my4 = ["sally", "fred"]
-my5 = ["sue", "bud"]
 
-myTestString = saveMyList1(my1, my2, my3, my4, my5)
-
-saveMyList2(myTestString, "test2.txt")
 
 
