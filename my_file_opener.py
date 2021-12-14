@@ -14,18 +14,21 @@ contentsString =""
 def openMyFile(fileName):
     myReadFile = open(fileName, "r")
     contentsString = myReadFile.read()
-    print(contentsString)
+    #print(contentsString)
     myReadFile.close()
     return contentsString
 
-def getQuestion(fileName):
+#opens the file and splits it into a List based on lines in the file
+#returns a List of the entire file
+def separateEntries(fileName):
     myFileString = openMyFile(fileName)
     contentsList = myFileString.splitlines()
     return contentsList
+
 #returns a list of the questions in the storage text file
 def makeQuestionList(fileName):
     questionsList =[]
-    contentsList = getQuestion(fileName)
+    contentsList = separateEntries(fileName)
     x = 1
     while(x < len(contentsList)):
         questionsList.append(contentsList[x])
@@ -35,7 +38,7 @@ def makeQuestionList(fileName):
 
 #return a list of Dicts for the answers
 def makeAnswersList(fileName):
-    contentsList = getQuestion(fileName)
+    contentsList = separateEntries(fileName)
     answersList =[]
     y =2
     while(y<len(contentsList)):
@@ -48,11 +51,13 @@ def makeAnswersList(fileName):
     
     return answersList
 
+
     
 
 
 #openMyFile("test3.txt")    
 #tester = getQuestion("test3.txt")
-#tester = makeQuestionList("test3.txt")
-tester = makeAnswersList("test3.txt")
+tester = makeQuestionList("test3.txt")
+tester2 = makeAnswersList("test3.txt")
 print(tester)
+print(tester2)
